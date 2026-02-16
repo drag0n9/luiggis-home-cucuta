@@ -6,7 +6,7 @@ const WHATSAPP_URL =
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Background placeholder — replace with real hero image */}
+      {/* Background placeholder - replace with real hero image */}
       <div className="absolute inset-0 bg-gradient-to-br from-charcoal via-charcoal-light to-warm-gray" />
       <div className="absolute inset-0 bg-black/40" />
 

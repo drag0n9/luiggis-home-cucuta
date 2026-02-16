@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drag0n9.github.io/luiggis-home-cucuta/sitemap.xml
