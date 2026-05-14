@@ -24,17 +24,26 @@ export const metadata: Metadata = {
     "luiggis home",
   ],
   openGraph: {
-    title: "Luiggis Home Cucuta | Hospedaje Acogedor",
+    title: "Luiggis Home Cúcuta | Tu descanso en Cúcuta",
     description:
-      "Un acogedor bed & breakfast en el corazon de Cucuta, Colombia.",
+      "Donde la calidez es parte del servicio. Reserva directo a mejor precio, sin intermediarios.",
     type: "website",
     locale: "es_CO",
+    images: [
+      {
+        url: "https://drag0n9.github.io/luiggis-home-cucuta/images/hero-habitacion.jpg",
+        width: 1200,
+        height: 800,
+        alt: "Habitación de Luiggis Home Cúcuta",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luiggis Home Cucuta",
+    title: "Luiggis Home Cúcuta",
     description:
-      "Un acogedor bed & breakfast en el corazon de Cucuta, Colombia.",
+      "Donde la calidez es parte del servicio. Reserva directo a mejor precio, sin intermediarios.",
+    images: ["https://drag0n9.github.io/luiggis-home-cucuta/images/hero-habitacion.jpg"],
   },
 };
 
@@ -61,7 +70,7 @@ export default function RootLayout({
                 addressRegion: "Norte de Santander",
                 addressCountry: "CO",
               },
-              telephone: "+57-300-000-0000",
+              telephone: "+57-310-673-1076",
               priceRange: "$$",
             }),
           }}
