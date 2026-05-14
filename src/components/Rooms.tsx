@@ -165,6 +165,13 @@ export default function Rooms() {
     setActivePhoto((p) => (p + dir + selectedRoom.photos.length) % selectedRoom.photos.length);
   };
 
+  const handleModalTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || !selectedRoom) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) stepModal(delta > 0 ? 1 : -1);
+    touchStartX.current = null;
+  };
+
   return (
     <>
       <section id="habitaciones" className="bg-white py-24 md:py-32">
@@ -341,7 +348,11 @@ export default function Rooms() {
             </button>
 
             {/* Main photo with arrows */}
-            <div className="group relative aspect-[16/9] overflow-hidden rounded-t-2xl">
+            <div
+              className="group relative aspect-[16/9] overflow-hidden rounded-t-2xl"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleModalTouchEnd}
+            >
               <Image
                 src={selectedRoom.photos[activePhoto].src}
                 alt={selectedRoom.photos[activePhoto].alt}
