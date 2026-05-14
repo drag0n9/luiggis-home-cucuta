@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { X, WhatsappLogo, CaretLeft, CaretRight } from "@phosphor-icons/react";
 
@@ -122,7 +122,32 @@ export default function Rooms() {
     return () => window.removeEventListener("keydown", onKey);
   }, [selectedRoom]);
 
+  const touchStartX = useRef<number | null>(null);
+  const swipeOccurred = useRef(false);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    swipeOccurred.current = false;
+  };
+
+  const handleTouchEnd = (roomId: string, total: number) => (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) {
+      swipeOccurred.current = true;
+      setCardPhoto((prev) => ({
+        ...prev,
+        [roomId]: (prev[roomId] + (delta > 0 ? 1 : -1) + total) % total,
+      }));
+    }
+    touchStartX.current = null;
+  };
+
   const openModal = (room: Room) => {
+    if (swipeOccurred.current) {
+      swipeOccurred.current = false;
+      return;
+    }
     setSelectedRoom(room);
     setActivePhoto(cardPhoto[room.id]);
   };
@@ -164,7 +189,11 @@ export default function Rooms() {
                 className="overflow-hidden rounded-2xl border border-cream-dark bg-cream"
               >
                 {/* Card image with arrows */}
-                <div className="group relative aspect-[4/3] overflow-hidden">
+                <div
+                  className="group relative aspect-[4/5] sm:aspect-[4/3] overflow-hidden"
+                  onTouchStart={handleTouchStart}
+                  onTouchEnd={handleTouchEnd(room.id, room.photos.length)}
+                >
                   <button
                     onClick={() => openModal(room)}
                     className="absolute inset-0 z-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-terracotta"
@@ -174,7 +203,7 @@ export default function Rooms() {
                       src={room.photos[cardPhoto[room.id]].src}
                       alt={room.photos[cardPhoto[room.id]].alt}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
                   </button>
 
