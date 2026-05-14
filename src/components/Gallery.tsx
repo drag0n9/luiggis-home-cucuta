@@ -4,7 +4,6 @@ const galleryItems = [
   { label: "Area del desayuno", span: "" },
   { label: "Sala de estar", span: "" },
   { label: "Detalle decoracion", span: "" },
-  { label: "Vista exterior", span: "md:col-span-2" },
 ];
 
 export default function Gallery() {

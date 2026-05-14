@@ -11,8 +11,8 @@
 :root {
   --color-cream: #faf7f2;
   --color-cream-dark: #f0ebe3;
-  --color-terracotta: #c2714f;
-  --color-terracotta-dark: #a85d3f;
+  --color-terracotta: #6B2D3E;
+  --color-terracotta-dark: #521F2E;
   --color-gold: #b8963e;
   --color-charcoal: #2c2c2c;
   --color-charcoal-light: #4a4a4a;
@@ -24,8 +24,8 @@
   --color-foreground: var(--color-charcoal);
   --color-cream: #faf7f2;
   --color-cream-dark: #f0ebe3;
-  --color-terracotta: #c2714f;
-  --color-terracotta-dark: #a85d3f;
+  --color-terracotta: #6B2D3E;
+  --color-terracotta-dark: #521F2E;
   --color-gold: #b8963e;
   --color-charcoal: #2c2c2c;
   --color-charcoal-light: #4a4a4a;

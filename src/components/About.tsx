@@ -1,14 +1,18 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <section id="sobre-nosotros" className="bg-cream py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-          {/* Image placeholder */}
-          <div className="aspect-[4/5] rounded-2xl bg-cream-dark flex items-center justify-center">
-            <span className="text-warm-gray text-sm">
-              {/* Replace with real image */}
-              Imagen del hospedaje
-            </span>
+          {/* Image */}
+          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+            <Image
+              src="/luiggis-home-cucuta/images/sobre-nosotros.jpg"
+              alt="Ambiente acogedor de Luiggis Home Cúcuta — sala iluminada que refleja calidez y descanso"
+              fill
+              className="object-cover"
+            />
           </div>
 
           {/* Text */}
@@ -17,22 +21,24 @@ export default function About() {
               Sobre Nosotros
             </p>
             <h2 className="font-serif text-4xl font-bold leading-tight text-charcoal md:text-5xl">
-              Tu hogar lejos
+              Un lugar para
               <br />
-              de casa
+              descansar de verdad
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-charcoal-light">
-              Luiggis Home Cucuta nacio del deseo de ofrecer a viajeros y
-              visitantes un espacio donde sentirse como en casa. Ubicados en el
-              corazon de Cucuta, combinamos la calidez de la hospitalidad
-              colombiana con habitaciones confortables y un servicio
-              personalizado.
+              Luiggis Home es un hospedaje familiar en Cúcuta pensado para
+              quienes necesitan un lugar seguro, tranquilo y cómodo. Nos importa
+              que puedas descansar de verdad, sin preocupaciones.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-charcoal-light">
-              Cada manana te recibimos con un delicioso desayuno casero,
-              preparado con ingredientes frescos de la region. Nuestro objetivo
-              es que tu estadia sea memorable, ya sea que vengas por negocios o
-              por placer.
+              Estamos a menos de 10 minutos del centro de la ciudad, con
+              supermercados cerca y el aeropuerto internacional a pocos minutos.
+              Una ubicación práctica, en un entorno tranquilo.
+            </p>
+            <p className="mt-4 text-lg leading-relaxed text-charcoal-light">
+              Somos una familia, y así te atendemos. Contamos con restaurante
+              propio donde puedes desayunar o almorzar sin salir del hospedaje.
+              Lo que más nos importa es tu seguridad, tu paz y tu descanso.
             </p>
           </div>
         </div>

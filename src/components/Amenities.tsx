@@ -1,54 +1,30 @@
 import {
   WifiHigh,
   CookingPot,
-  Snowflake,
   Car,
-  Television,
-  ShieldCheck,
-  Coffee,
-  FirstAid,
+  PawPrint,
 } from "@phosphor-icons/react/dist/ssr";
 
 const amenities = [
   {
     icon: WifiHigh,
     title: "WiFi Gratis",
-    description: "Conexion de alta velocidad en todas las areas",
+    description: "Conexión de alta velocidad en todas las áreas.",
   },
   {
     icon: CookingPot,
-    title: "Desayuno Incluido",
-    description: "Desayuno casero con productos frescos de la region",
-  },
-  {
-    icon: Snowflake,
-    title: "Aire Acondicionado",
-    description: "Climatizacion en todas las habitaciones",
+    title: "Restaurante Disponible",
+    description: "Restaurante propio con desayuno y almuerzo. Costo adicional.",
   },
   {
     icon: Car,
     title: "Parqueadero",
-    description: "Estacionamiento privado y seguro",
+    description: "Disponible sujeto a confirmación previa con el propietario.",
   },
   {
-    icon: Television,
-    title: "TV por Cable",
-    description: "Television con canales nacionales e internacionales",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Seguridad 24h",
-    description: "Vigilancia y acceso controlado las 24 horas",
-  },
-  {
-    icon: Coffee,
-    title: "Area Comun",
-    description: "Salon compartido con cafe y te disponible",
-  },
-  {
-    icon: FirstAid,
-    title: "Kit de Aseo",
-    description: "Toallas, jabon y articulos de aseo personal",
+    icon: PawPrint,
+    title: "Se Admiten Mascotas",
+    description: "Bienvenidas con un costo adicional. Consulta al reservar.",
   },
 ];
 

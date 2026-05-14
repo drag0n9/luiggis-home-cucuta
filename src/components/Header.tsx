@@ -1,28 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { List, X, WhatsappLogo } from "@phosphor-icons/react";
 
 const WHATSAPP_URL =
-  "https://wa.me/573000000000?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20habitaci%C3%B3n%20en%20Luiggis%20Home";
+  "https://wa.me/573106731076?text=Hola%2C%20quiero%20reservar%20una%20habitaci%C3%B3n%20en%20Luiggis%20Home";
 
 const NAV_LINKS = [
-  { href: "#sobre-nosotros", label: "Nosotros" },
   { href: "#habitaciones", label: "Habitaciones" },
   { href: "#servicios", label: "Servicios" },
-  { href: "#galeria", label: "Galeria" },
-  { href: "#ubicacion", label: "Ubicacion" },
+  { href: "#galeria", label: "Galería" },
+  { href: "#sobre-nosotros", label: "Nosotros" },
+  { href: "#ubicacion", label: "Ubicación" },
   { href: "#contacto", label: "Contacto" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-cream/95 backdrop-blur-sm border-b border-cream-dark">
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-cream/95 backdrop-blur-sm border-b border-cream-dark" : "bg-transparent border-b border-transparent"}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="#" className="font-serif text-2xl font-bold text-charcoal">
+        <a href="#" className={`font-serif text-2xl font-bold transition-colors duration-300 ${scrolled ? "text-charcoal" : "text-white"}`}>
           Luiggis Home
         </a>
 
@@ -32,7 +39,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-charcoal-light transition-colors hover:text-terracotta"
+              className={`text-sm font-medium tracking-wide transition-colors duration-300 ${scrolled ? "text-charcoal-light hover:text-terracotta" : "text-white/90 hover:text-white"}`}
             >
               {link.label}
             </a>
@@ -50,9 +57,9 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-charcoal"
+          className={`md:hidden transition-colors duration-300 ${scrolled ? "text-charcoal" : "text-white"}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Cerrar menu" : "Abrir menu"}
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
         >
           {menuOpen ? <X size={28} /> : <List size={28} />}
         </button>
